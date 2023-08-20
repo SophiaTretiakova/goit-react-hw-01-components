@@ -6,14 +6,19 @@ import { FriendList } from './FriendList/FriendList';
 import friends from '../friends.json';
 import transactions from '../transactions';
 import { TransactionHistory } from './TransactionHistory/TransactionHistory';
+import { UsersDataCards, GlobalContainer } from './GlobalStyles.styled';
+import { GlobalStyles } from './GlobalStyles.styled';
 
 export const App = () => {
   return (
-    <div>
-      <Profile userData={user} />
+    <GlobalContainer>
+      <UsersDataCards>
+        <Profile userData={user} />
+        <FriendList friends={friends}></FriendList>
+      </UsersDataCards>
       <Statistics title="Upload stats" stats={data} />
-      <FriendList friends={friends}></FriendList>
-      <TransactionHistory items={transactions} />;
-    </div>
+      <TransactionHistory items={transactions} />
+      <GlobalStyles></GlobalStyles>
+    </GlobalContainer>
   );
 };
